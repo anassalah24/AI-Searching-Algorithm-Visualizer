@@ -40,6 +40,7 @@ class Ui_Form(object):
             if node in final:
                 continue
             self.comboBox.addItem(str(node))
+        self.comboBox.setCurrentIndex(0)
         self.label_2 = QtWidgets.QLabel(self.frame)
         self.label_2.setGeometry(QtCore.QRect(100, 100, 61, 31))
         font = QtGui.QFont()
@@ -86,6 +87,9 @@ class Ui_Form(object):
     def submitH(self):
         current_node = self.comboBox.currentText()
         nodeatrr.append((current_node , dict(H = self.spinBox.value())))
+        if self.comboBox.currentIndex() == -1:
+            self.comboBox.setCurrentIndex(0)
+            return
         heuristic[current_node]=self.spinBox.value()
         string = "Node {} Heuristic successfully added".format(current_node)
         msg11 = QMessageBox()
@@ -93,6 +97,7 @@ class Ui_Form(object):
         msg11.setText("Node {} Heuristic successfully added".format(current_node))
         msg11.setWindowTitle("Heuristed Added")
         msg11.exec_()
+        self.comboBox.setCurrentIndex(self.comboBox.currentIndex()+1)
 
         print(string)
         print(nodeatrr)
@@ -123,6 +128,9 @@ class Ui_Form(object):
 
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(1000,200,700, 600)
+        Agraph.visual.clear()
+        Agraph.heuristic.clear()
+        Agraph.adjacency_list.clear()
         print(nodeatrr)   
         print(heuristic)
 

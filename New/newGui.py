@@ -125,7 +125,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(310, 0, 581, 71))
+        self.label.setGeometry(QtCore.QRect(710, 0, 581, 71))
         font = QtGui.QFont()
         font.setFamily("Cambria")
         font.setPointSize(26)
@@ -161,7 +161,7 @@ class Ui_MainWindow(object):
         font.setItalic(True)
         font.setWeight(75)
         self.label_2.setFont(font)
-        self.label_2.setStyleSheet("color: rgb(0, 139, 203);")
+        self.label_2.setStyleSheet("color: rgb(14, 21, 55);")
         self.label_2.setObjectName("label_2")
         self.pushButton = QtWidgets.QPushButton(self.frame, clicked=lambda:self.addnodetograph())
         self.pushButton.setGeometry(QtCore.QRect(0, 130, 371, 91))
@@ -169,7 +169,7 @@ class Ui_MainWindow(object):
         font.setFamily("Cambria")
         font.setPointSize(16)
         self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("background-color: rgb(155, 8, 168);\n"
+        self.pushButton.setStyleSheet("background-color: rgb(215, 219, 238);\n"
                                       "color: rgb(0, 0, 0);")
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.frame , clicked= lambda:self.deletenode())
@@ -178,7 +178,7 @@ class Ui_MainWindow(object):
         font.setFamily("Cambria")
         font.setPointSize(16)
         self.pushButton_2.setFont(font)
-        self.pushButton_2.setStyleSheet("background-color: rgb(155, 8, 168);\n"
+        self.pushButton_2.setStyleSheet("background-color: rgb(215, 219, 238);\n"
                                         "color: rgb(0, 0, 0);")
         self.pushButton_2.setObjectName("pushButton_2")
         self.label_5 = QtWidgets.QLabel(self.frame)
@@ -195,7 +195,7 @@ class Ui_MainWindow(object):
         font.setFamily("Cambria")
         font.setPointSize(16)
         self.pushButton_3.setFont(font)
-        self.pushButton_3.setStyleSheet("background-color: rgb(155, 8, 168);\n"
+        self.pushButton_3.setStyleSheet("background-color: rgb(215, 219, 238);\n"
                                         "color: rgb(0, 0, 0);")
         self.pushButton_3.setObjectName("pushButton_3")
         self.label_7 = QtWidgets.QLabel(self.frame)
@@ -250,7 +250,7 @@ class Ui_MainWindow(object):
         font.setItalic(True)
         font.setWeight(75)
         self.label_3.setFont(font)
-        self.label_3.setStyleSheet("color: rgb(0, 155, 232);")
+        self.label_3.setStyleSheet("color: rgb(14, 21, 55);")
         self.label_3.setObjectName("label_3")
         self.label_8 = QtWidgets.QLabel(self.frame_2)
         self.label_8.setGeometry(QtCore.QRect(30, 110, 181, 51))
@@ -287,8 +287,8 @@ class Ui_MainWindow(object):
         font.setFamily("Cambria")
         font.setPointSize(16)
         self.pushButton5.setFont(font)
-        self.pushButton5.setStyleSheet("background-color: rgb(92, 91, 91);\n"
-                                       "color: rgb(0, 0, 0);")
+        self.pushButton5.setStyleSheet("background-color: rgb(104, 22, 36);\n"
+                                       "color: rgb(255, 255, 255);")
         self.pushButton5.setObjectName("pushButton")
 
         self.pushButton6 = QtWidgets.QPushButton(self.frame_2 , clicked=lambda: self.goback() )
@@ -297,8 +297,8 @@ class Ui_MainWindow(object):
         font.setFamily("Cambria")
         font.setPointSize(16)
         self.pushButton6.setFont(font)
-        self.pushButton6.setStyleSheet("background-color: rgb(92, 91, 91);\n"
-                                       "color: rgb(0, 0, 0);")
+        self.pushButton6.setStyleSheet("background-color: rgb(215, 219, 238);\n"
+                                       "color: rgb(0,0,0);")
         self.pushButton6.setObjectName("pushButton")
 
 
@@ -319,7 +319,7 @@ class Ui_MainWindow(object):
         font.setItalic(True)
         font.setWeight(75)
         self.label_4.setFont(font)
-        self.label_4.setStyleSheet("color: rgb(0, 169, 248);")
+        self.label_4.setStyleSheet("color: rgb(14, 21, 55);")
         self.label_4.setObjectName("label_4")
         self.pushButton_4 = QtWidgets.QPushButton(self.frame_3 , clicked = lambda:self.choosingAlgo(MainWindow))
         self.pushButton_4.setGeometry(QtCore.QRect(0, 520, 411, 131))
@@ -327,7 +327,7 @@ class Ui_MainWindow(object):
         font.setFamily("Cambria")
         font.setPointSize(16)
         self.pushButton_4.setFont(font)
-        self.pushButton_4.setStyleSheet("background-color: rgb(155, 8, 168);\n"
+        self.pushButton_4.setStyleSheet("background-color: rgb(215, 219, 238);\n"
                                         "color: rgb(0, 0, 0);")
         self.pushButton_4.setObjectName("pushButton_4")
         self.label_10 = QtWidgets.QLabel(self.frame_3)
@@ -545,7 +545,9 @@ class Ui_MainWindow(object):
             graphbfs.addWeightedEdge(edge[0],edge[1],edge[2])
 
         graphbfs.bfs(self.spinBox_6.value(),self.ComboBox1.check_items(),self)
-        del graphbfs
+        graphbfs.visual.clear()
+        graphbfs.heuristic.clear()
+        graphbfs.adjacency_list.clear()
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(1000,200,700, 600)
 
@@ -566,7 +568,9 @@ class Ui_MainWindow(object):
             graphdfs.addWeightedEdge(edge[0],edge[1],edge[2])
 
         graphdfs.dfs(self.spinBox_6.value(),self.ComboBox1.check_items(),self)
-        del graphdfs
+        graphdfs.visual.clear()
+        graphdfs.heuristic.clear()
+        graphdfs.adjacency_list.clear()
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(1000,200,700, 600)
 
@@ -586,7 +590,9 @@ class Ui_MainWindow(object):
         for edge in self.myedges:
             Ucsgraph.addWeightedEdge(edge[0],edge[1],edge[2])
         Ucsgraph.ucs(self.spinBox_6.value(), self.ComboBox1.check_items(),self)
-        del Ucsgraph
+        Ucsgraph.visual.clear()
+        Ucsgraph.heuristic.clear()
+        Ucsgraph.adjacency_list.clear()
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(1000,200,700, 600)
 
@@ -620,7 +626,7 @@ class Ui_MainWindow(object):
         graph.limdfs(self.spinBox_6.value(),self.ComboBox1.check_items(),limit,self)
         graph.adjacency_list.clear()
         graph.visual.clear()
-        del graph
+        graph.heuristic.clear()
 
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(1000,200,700, 600)
@@ -643,7 +649,9 @@ class Ui_MainWindow(object):
         for edge in self.myedges:
             graphiter.addWeightedEdge(edge[0],edge[1],edge[2])
         graphiter.limdfsiter(self.spinBox_6.value(),self.ComboBox1.check_items(),0,self.myedges,self)
-        del graphiter
+        graphiter.visual.clear()
+        graphiter.adjacency_list.clear()
+        graphiter.heuristic.clear()
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(1000,200,700, 600)
 
@@ -682,7 +690,7 @@ class Ui_MainWindow2(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(310, 0, 581, 71))
+        self.label.setGeometry(QtCore.QRect(710, 0, 581, 71))
         font = QtGui.QFont()
         font.setFamily("Cambria")
         font.setPointSize(26)
@@ -718,7 +726,7 @@ class Ui_MainWindow2(object):
         font.setItalic(True)
         font.setWeight(75)
         self.label_2.setFont(font)
-        self.label_2.setStyleSheet("color: rgb(0, 139, 203);")
+        self.label_2.setStyleSheet("color: rgb(14, 21, 55);")
         self.label_2.setObjectName("label_2")
         self.pushButton = QtWidgets.QPushButton(self.frame, clicked=lambda:self.addnodetograph())
         self.pushButton.setGeometry(QtCore.QRect(0, 130, 371, 91))
@@ -726,7 +734,7 @@ class Ui_MainWindow2(object):
         font.setFamily("Cambria")
         font.setPointSize(16)
         self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("background-color: rgb(155, 8, 168);\n"
+        self.pushButton.setStyleSheet("background-color: rgb(215, 219, 238);\n"
                                       "color: rgb(0, 0, 0);")
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.frame , clicked= lambda:self.deletenode())
@@ -735,7 +743,7 @@ class Ui_MainWindow2(object):
         font.setFamily("Cambria")
         font.setPointSize(16)
         self.pushButton_2.setFont(font)
-        self.pushButton_2.setStyleSheet("background-color: rgb(155, 8, 168);\n"
+        self.pushButton_2.setStyleSheet("background-color: rgb(215, 219, 238);\n"
                                         "color: rgb(0, 0, 0);")
         self.pushButton_2.setObjectName("pushButton_2")
         self.label_5 = QtWidgets.QLabel(self.frame)
@@ -752,7 +760,7 @@ class Ui_MainWindow2(object):
         font.setFamily("Cambria")
         font.setPointSize(16)
         self.pushButton_3.setFont(font)
-        self.pushButton_3.setStyleSheet("background-color: rgb(155, 8, 168);\n"
+        self.pushButton_3.setStyleSheet("background-color: rgb(215, 219, 238);\n"
                                         "color: rgb(0, 0, 0);")
         self.pushButton_3.setObjectName("pushButton_3")
         self.label_7 = QtWidgets.QLabel(self.frame)
@@ -807,7 +815,7 @@ class Ui_MainWindow2(object):
         font.setItalic(True)
         font.setWeight(75)
         self.label_3.setFont(font)
-        self.label_3.setStyleSheet("color: rgb(0, 155, 232);")
+        self.label_3.setStyleSheet("color: rgb(14, 21, 55);")
         self.label_3.setObjectName("label_3")
         self.label_8 = QtWidgets.QLabel(self.frame_2)
         self.label_8.setGeometry(QtCore.QRect(30, 110, 181, 51))
@@ -844,8 +852,8 @@ class Ui_MainWindow2(object):
         font.setFamily("Cambria")
         font.setPointSize(16)
         self.pushButton5.setFont(font)
-        self.pushButton5.setStyleSheet("background-color: rgb(92, 91, 91);\n"
-                                       "color: rgb(0, 0, 0);")
+        self.pushButton5.setStyleSheet("background-color: rgb(104, 22, 36);\n"
+                                       "color: rgb(255,255,255);")
         self.pushButton5.setObjectName("pushButton")
 
         self.pushButton6 = QtWidgets.QPushButton(self.frame_2 , clicked=lambda: self.goback() )
@@ -854,7 +862,7 @@ class Ui_MainWindow2(object):
         font.setFamily("Cambria")
         font.setPointSize(16)
         self.pushButton6.setFont(font)
-        self.pushButton6.setStyleSheet("background-color: rgb(92, 91, 91);\n"
+        self.pushButton6.setStyleSheet("background-color: rgb(215, 219, 238);\n"
                                        "color: rgb(0, 0, 0);")
         self.pushButton6.setObjectName("pushButton")
 
@@ -876,7 +884,7 @@ class Ui_MainWindow2(object):
         font.setItalic(True)
         font.setWeight(75)
         self.label_4.setFont(font)
-        self.label_4.setStyleSheet("color: rgb(0, 169, 248);")
+        self.label_4.setStyleSheet("color: rgb(14, 21, 55);")
         self.label_4.setObjectName("label_4")
         self.pushButton_4 = QtWidgets.QPushButton(self.frame_3 , clicked = lambda:self.choosingAlgo(MainWindow))
         self.pushButton_4.setGeometry(QtCore.QRect(0, 520, 411, 131))
@@ -884,7 +892,7 @@ class Ui_MainWindow2(object):
         font.setFamily("Cambria")
         font.setPointSize(16)
         self.pushButton_4.setFont(font)
-        self.pushButton_4.setStyleSheet("background-color: rgb(155, 8, 168);\n"
+        self.pushButton_4.setStyleSheet("background-color: rgb(215, 219, 238);\n"
                                         "color: rgb(0, 0, 0);")
         self.pushButton_4.setObjectName("pushButton_4")
         self.label_10 = QtWidgets.QLabel(self.frame_3)
@@ -1098,8 +1106,10 @@ class Ui_MainWindow2(object):
         for edge in self.myedges:
             graphbfs.addWeightedEdge(edge[0],edge[1],edge[2])
 
-        graphbfs.bfs(self.spinBox_6.value(),self.ComboBox1.check_items())
-        del graphbfs
+        graphbfs.bfs(self.spinBox_6.value(),self.ComboBox1.check_items(),self)
+        graphbfs.visual.clear()
+        graphbfs.heuristic.clear()
+        graphbfs.adjacency_list.clear()
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(1000,200,700, 600)
 
@@ -1119,8 +1129,10 @@ class Ui_MainWindow2(object):
         for edge in self.myedges:
             graphdfs.addWeightedEdge(edge[0],edge[1],edge[2])
 
-        graphdfs.dfs(self.spinBox_6.value(),self.ComboBox1.check_items())
-        del graphdfs
+        graphdfs.dfs(self.spinBox_6.value(),self.ComboBox1.check_items(),self)
+        graphdfs.visual.clear()
+        graphdfs.heuristic.clear()
+        graphdfs.adjacency_list.clear()
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(1000,200,700, 600)
 
@@ -1140,8 +1152,10 @@ class Ui_MainWindow2(object):
         Ucsgraph = WG.WeightedGraph()
         for edge in self.myedges:
             Ucsgraph.addWeightedEdge(edge[0],edge[1],edge[2])
-        Ucsgraph.ucs(self.spinBox_6.value(), self.ComboBox1.check_items())
-        del Ucsgraph
+        Ucsgraph.ucs(self.spinBox_6.value(), self.ComboBox1.check_items(),self)
+        Ucsgraph.visual.clear()
+        Ucsgraph.heuristic.clear()
+        Ucsgraph.adjacency_list.clear()
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(1000,200,700, 600)
 
@@ -1153,7 +1167,7 @@ class Ui_MainWindow2(object):
             msg6.setWindowTitle("Warning")
             msg6.exec_()
             return
-        main.dialogbox(self.mynodes , self.ComboBox1.check_items() ,self.myedges,self.spinBox_6.value(),choice )
+        main.dialogbox(self.mynodes , self.ComboBox1.check_items() ,self.myedges,self.spinBox_6.value(),choice,self )
 
     def makeDFSlimited(self,limit):
         if(not bool(self.ComboBox1.check_items())):
@@ -1172,10 +1186,11 @@ class Ui_MainWindow2(object):
         graph = WG.WeightedGraph()
         for edge in self.myedges:
             graph.addWeightedEdge(edge[0],edge[1],edge[2])
-        graph.limdfs(self.spinBox_6.value(),self.ComboBox1.check_items(),limit)
+        graph.limdfs(self.spinBox_6.value(),self.ComboBox1.check_items(),limit,self)
         graph.adjacency_list.clear()
         graph.visual.clear()
-        del graph
+        graph.heuristic.clear()
+
 
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(1000,200,700, 600)
@@ -1197,8 +1212,10 @@ class Ui_MainWindow2(object):
         graphiter = WG.WeightedGraph()
         for edge in self.myedges:
             graphiter.addWeightedEdge(edge[0],edge[1],edge[2])
-        graphiter.limdfsiter(self.spinBox_6.value(),self.ComboBox1.check_items(),1,self.myedges)
-        del graphiter
+        graphiter.limdfsiter(self.spinBox_6.value(),self.ComboBox1.check_items(),1,self.myedges,self)
+        graphiter.visual.clear()
+        graphiter.adjacency_list.clear()
+        graphiter.heuristic.clear()
         mngr = plt.get_current_fig_manager()
         mngr.window.setGeometry(1000,200,700, 600)
 
@@ -1215,7 +1232,7 @@ class Ui_MainWindow2(object):
     def updateviz(self):
         nt = Network('720px', '690px')
         for node in self.mynodes:
-            nt.add_node(str(node))
+            nt.add_node(str(node), shape='circle')
         for edge in self.myedges:
             nt.add_edge(str(edge[0]), str(edge[1]), weight=edge[2], title="weight : " + str(edge[2]))
         # nt.toggle_physics(False)
