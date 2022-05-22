@@ -5,8 +5,9 @@ from pyvis.network import Network
 from combobox import CheckableComboBox
 from PyQt5 import QtCore, QtGui, QtWidgets
 import networkx as nx 
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQT
+from PyQt5.QtWidgets import QApplication, QWidget, QDesktopWidget
 from PyQt5.QtWidgets import QApplication, QWidget, QDesktopWidget
 from PyQt5.QtWidgets import QMessageBox
 from combobox import CheckableComboBox
